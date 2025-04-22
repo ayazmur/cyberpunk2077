@@ -220,11 +220,80 @@
         </div>
         <nav class="footer-links">
           <a href="#" class="footer-link">Лицензия</a>
-          <a href="#" class="footer-link">Политика конфиденциальности</a>
+          <a href="#" class="footer-link policy-link">Политика конфиденциальности</a>
         </nav>
       </div>
       <div class="copyright">CD PROJEKT®, Cyberpunk®, Cyberpunk 2077®</div>
     </footer>
+    <!-- Модальное окно для "Узнать больше" -->
+<div id="moreModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Дополнительная информация</h2>
+    <p>Здесь будет подробная информация о Cyberpunk 2077 и доступных платформах.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для политики конфиденциальности -->
+<div id="policyModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Политика конфиденциальности</h2>
+    <p>Здесь будет текст политики конфиденциальности.</p>
+  </div>
+</div>
+<script>
+  // Получаем модальные окна и кнопки
+  const moreModal = document.getElementById("moreModal");
+  const policyModal = document.getElementById("policyModal");
+  const moreBtn = document.querySelector(".welcome-link");
+  const policyLink = document.querySelector('a[href="#"]'); 
+  const closeButtons = document.querySelectorAll(".close");
+
+  // Открываем модальное окно "Узнать больше"
+  moreBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    moreModal.style.display = "block";
+  });
+
+  // Открываем модальное окно политики
+  policyLink.addEventListener("click", function(e) {
+    e.preventDefault();
+    policyModal.style.display = "block";
+  });
+
+  // Закрываем модальные окна при клике на крестик
+  closeButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      moreModal.style.display = "none";
+      policyModal.style.display = "none";
+    });
+  });
+
+  // Закрываем модальные окна при клике вне их
+  window.addEventListener("click", function(event) {
+    if (event.target == moreModal) {
+      moreModal.style.display = "none";
+    }
+    if (event.target == policyModal) {
+      policyModal.style.display = "none";
+    }
+  });
+
+  // Фоновая смена изображений (уже есть в вашем коде)
+  const images = [
+    'img/bg/1.jpg',
+    'img/bg/2.jpg',
+    'img/bg/3.jpg',
+  ];
+
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    document.body.style.setProperty('--bg-image', `url(${images[index]})`);
+  }, 5000);
+</script>
   </body>
 </html>
 <script>
