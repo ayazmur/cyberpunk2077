@@ -50,7 +50,6 @@ body::before {
   box-sizing: border-box;
 }
 
-/* HEADER */
 
 .nav-list-container {
   display: flex;
@@ -382,8 +381,8 @@ footer {
 }
 
 .footer-content .footer-logos img {
-  height: auto; /* Изображения не сжимаются */
-  max-height: 100px; /* Определим максимальную высоту для изображений */
+  height: auto; 
+  max-height: 100px; 
 }
 
 .footer-content .footer-links {
